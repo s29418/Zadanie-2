@@ -23,7 +23,7 @@ public class Container
     }
 
 
-    public void Clear()
+    public virtual void Clear()
     {
         this.loadWeight = 0;
         this.Cargo.Clear();

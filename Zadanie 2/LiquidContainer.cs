@@ -1,9 +1,8 @@
 ﻿namespace Zadanie_2;
 
-public class LiquidContainer : Container
+public class LiquidContainer : Container, IHazardNotifier
 {
-    public LiquidContainer(double containerWeight, double maxCapacity, double height, double depth) : base(
-        containerWeight, maxCapacity, height, depth)
+    public LiquidContainer(double containerWeight, double maxCapacity, double height, double depth) : base(containerWeight, maxCapacity, height, depth)
     {
         this.serialNumber = "KON-L-" + id;
     }

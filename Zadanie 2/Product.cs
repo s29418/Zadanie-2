@@ -19,3 +19,10 @@ public class Liquid : Product
         this.isHazard = isHazard;
     }
 }
+
+public class Gas : Product
+{
+    public Gas(string name) : base(name)
+    {
+    }
+}
