@@ -26,9 +26,12 @@ public class Container
         this.loadWeight = 0;
     }
 
-    public void Load(Container container)
+    public void Load(double loadWeight)
     {
-        
+        if (this.loadWeight + loadWeight > maxCapacity)
+        {
+            throw new OverfillException();
+        }
+        this.loadWeight += loadWeight;
     }
-    
 }
