@@ -2,11 +2,12 @@
 
 public class Container
 {
+    public List<Product> Cargo = new List<Product>();
     public static int id = 0;
     public string serialNumber;
     private double containerWeight;
     public double loadWeight;
-    private double maxCapacity;
+    protected double maxCapacity;
     private double height;
     private double depth;
 
@@ -18,20 +19,23 @@ public class Container
         this.height = height;
         this.depth = depth;
         this.loadWeight = 0;
+        this.Cargo = new List<Product>();
     }
 
 
     public void Clear()
     {
         this.loadWeight = 0;
+        this.Cargo.Clear();
     }
 
-    public void Load(double loadWeight)
+    public virtual void Load(double loadWeight, Product product)
     {
         if (this.loadWeight + loadWeight > maxCapacity)
         {
             throw new OverfillException();
         }
         this.loadWeight += loadWeight;
+        this.Cargo.Add(product);
     }
 }
