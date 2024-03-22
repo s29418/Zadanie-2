@@ -26,3 +26,13 @@ public class Gas : Product
     {
     }
 }
+
+public class CoolingProduct : Product
+{
+    public double temperature;
+
+    public CoolingProduct(string name, double temperature) : base(name)
+    {
+        this.temperature = temperature;
+    }
+}

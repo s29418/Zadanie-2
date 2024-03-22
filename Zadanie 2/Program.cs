@@ -20,7 +20,7 @@
             // }
             
             
-            Container container3 = new GasContainer(20.0,2000, 20.0, 20.0);
+            Container container3 = new GasContainer(20.0,2000, 20.0, 20.0,1);
             container3.Load(1000, new Gas("Oxygen"));
             container3.Clear();
             Console.WriteLine(container3.loadWeight);
