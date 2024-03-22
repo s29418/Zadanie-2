@@ -1,10 +1,12 @@
 ﻿namespace Zadanie_2;
 
-public class GasContainor : Container, IHazardNotifier
+public class GasContainer : Container, IHazardNotifier
 {
-    public GasContainor(double containerWeight, double maxCapacity, double height, double depth) : base(containerWeight, maxCapacity, height, depth)
+    public double pressure;
+    public GasContainer(double containerWeight, double maxCapacity, double height, double depth, double pressure) : base(containerWeight, maxCapacity, height, depth)
     {
         this.serialNumber = "KON-G-" + id;
+        this.pressure = pressure;
     }
 
     public override void Load(double loadWeight, Product gas)
