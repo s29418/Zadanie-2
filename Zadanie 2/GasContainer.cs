@@ -1,8 +1,8 @@
 ﻿namespace Zadanie_2;
 
-public class GasContainor : Container, IHazardNotifier
+public class GasContainer : Container, IHazardNotifier
 {
-    public GasContainor(double containerWeight, double maxCapacity, double height, double depth) : base(containerWeight, maxCapacity, height, depth)
+    public GasContainer(double containerWeight, double maxCapacity, double height, double depth) : base(containerWeight, maxCapacity, height, depth)
     {
         this.serialNumber = "KON-G-" + id;
     }
