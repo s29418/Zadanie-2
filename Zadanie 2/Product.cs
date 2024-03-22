@@ -4,9 +4,14 @@ public abstract class Product
 {
     public string name;
 
-    protected Product(string name)
+    public Product(string name)
     {
         this.name = name;
+    }
+
+    public bool Equals(Product? product)
+    {
+        return this.name == product.name;
     }
 }
 
@@ -29,10 +34,22 @@ public class Gas : Product
 
 public class CoolingProduct : Product
 {
-    public double temperature;
 
-    public CoolingProduct(string name, double temperature) : base(name)
+    public CoolingProduct(string name) : base(name)
     {
-        this.temperature = temperature;
     }
+
+    public static Dictionary<string, double> MinTemperature = new Dictionary<string, double>()
+    {
+        {"Bananas", 13.3},
+        {"Chocolate", 18},
+        {"Fish", 2},
+        {"Meat", -15},
+        {"Ice cream", -18},
+        {"Frozen pizza", -30},
+        {"Cheese", 7.2},
+        {"Sausages", 5},
+        {"Butter", 20.5},
+        {"Eggs", 19}
+    };
 }
