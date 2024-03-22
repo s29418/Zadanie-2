@@ -32,4 +32,9 @@ public class CoolingContainer : Container
         }
         base.Load(loadWeight, product);
     }
+
+    public override string ToString()
+    {
+        return base.ToString() + ", Container temperature: " + ContainerTemperature + "C";
+    }
 }

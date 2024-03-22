@@ -28,4 +28,9 @@ public class GasContainer : Container, IHazardNotifier
     {
         Console.WriteLine($"Hazard Notification for Container {containerNumber}: {message}");
     }
+
+    public override string ToString()
+    {
+        return base.ToString() + ", Pressure: " + pressure;
+    }
 }

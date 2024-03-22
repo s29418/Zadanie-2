@@ -5,7 +5,7 @@ public class Container
     public List<Product> Cargo = new List<Product>();
     public static int id = 0;
     public string serialNumber;
-    private double containerWeight;
+    public double containerWeight;
     public double loadWeight;
     protected double maxCapacity;
     private double height;
@@ -37,5 +37,10 @@ public class Container
         }
         this.loadWeight += loadWeight;
         this.Cargo.Add(product);
+    }
+
+    public override string ToString()
+    {
+        return "Container[" + serialNumber + "]: Container weight: " + containerWeight + "kg, Max capacity: " + maxCapacity + "kg, loadWeight: " + loadWeight + "kg, Height: " + height + "cm, Depth: " + depth + "cm";
     }
 }
