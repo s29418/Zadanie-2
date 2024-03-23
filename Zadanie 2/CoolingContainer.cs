@@ -33,6 +33,20 @@ public class CoolingContainer : Container
         base.Load(loadWeight, product);
     }
 
+    public string ContainerSafeProducts()
+    {
+        string safeProducts = "Products that can be stored in this container: ";
+        foreach (KeyValuePair<string, double> product in CoolingProduct.MinTemperature)
+        {
+            if (product.Value < ContainerTemperature)
+            {
+                safeProducts += product.Key + ", ";
+            }
+        }
+
+        return safeProducts;
+    }
+
     public override string ToString()
     {
         return base.ToString() + ", Container temperature: " + ContainerTemperature + "C";
