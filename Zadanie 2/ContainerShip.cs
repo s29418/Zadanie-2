@@ -64,20 +64,27 @@ public class ContainerShip
         this.currentLoadWeight = 0;
     }
 
-    public void ReplaceWithAnotherContainer(string serialNumber, Container container)
+    public void ReplaceWithAnotherContainer(string serialNumber, Container containerToLoad)
     {
-        foreach (Container containerToReplace in Containers)
+        Container containerToReplace = null;
+        
+        foreach (Container container in Containers)
         {
-            if (containerToReplace.serialNumber == serialNumber)
+            if (container.serialNumber == serialNumber)
             {
-                Containers.Remove(containerToReplace);
-                this.currentLoadWeight -= containerToReplace.loadWeight;
-                LoadContainer(container);
+                containerToReplace = container;
+                break;
             }
             else
             {
-                Console.WriteLine("Container not found on the ship");
+                Console.WriteLine("Container " + serialNumber + " not found on the ship");
             }
+        }
+
+        if (containerToReplace != null)
+        {
+            this.UnloadContainer(containerToReplace);
+            this.LoadContainer(containerToLoad);
         }
     }
 
@@ -98,9 +105,15 @@ public class ContainerShip
     {
         string result = serialNumber + ": Max speed: " + maxSpeed + "kn, Max containers: " + maxContainers + ", Max capacity: " + maxCapacity + "Ton, Current load weight: " + currentLoadWeight + "kg";
         result += "\nContainers on ship:";
-        foreach (Container container in Containers)
+        if (Containers.Count != 0)
         {
-            result += "\n" + container;
+            foreach (Container container in Containers)
+            {
+                result += "\n" + container;
+            }
+        }else
+        {
+            result += " None";
         }
         return result;
     }

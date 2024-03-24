@@ -41,19 +41,33 @@ public class Program
         
         
         //Container Ship
-        ContainerShip ship = new ContainerShip(15, 20, 50);
+        ContainerShip ship = new ContainerShip(15, 20, 30);
+        ContainerShip ship2 = new ContainerShip(15, 20, 30);
+        List<Container> containers = new List<Container>();
+        containers.Add(container);
+        containers.Add(container2);
+        containers.Add(container3);
         try
         {
-            ship.LoadContainer(container);
-            ship.LoadContainer(container2);
-            ship.LoadContainer(container3);
-            ship.LoadContainer(container4);
-            ship.LoadContainer(container2);
+            ship.LoadContainers(containers);
         }
         catch (OverfillException e)
         {
             Console.WriteLine(e.Message);
         }
+        ship2.LoadContainer(container3);
+        ship2.LoadContainer(container4);
+        Console.WriteLine(ship);
+        Console.WriteLine("\n" + ship2);
+        
+        ship.UnloadShip();
+        ship2.UnloadContainer(container3);
+        ship2.ReplaceWithAnotherContainer("KON-C-4",container3);
+        Console.WriteLine("\n" + ship2);
+        Console.WriteLine(ship);
+        
+        ship2.MoveContainerToAnotherShip(ship, container3);
+        Console.WriteLine("\n" + ship2);
         Console.WriteLine(ship);
     }
 }
